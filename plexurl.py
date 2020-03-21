@@ -25,7 +25,7 @@ PLEX_TOKEN = sys.argv[1]
 PLEX_BASE_URL = sys.argv[2]
 
 # stores plex user login info into a variable
-from plexapi.myplex import MyPlexAccount
+from plexapi.server import PlexServer
 plex = PlexServer(PLEX_BASE_URL, PLEX_TOKEN)  # returns a PlexServer instance
 
 # displays current plex custom url settings. Not needed but nice to see
@@ -37,7 +37,7 @@ customUrl.set(NGROK_URL)
 plex.settings.save()
 
 # displays new custom plex url from Ngrok. Not needed but nice to see
-from plexapi.myplex import MyPlexAccount
+from plexapi.server import PlexServer
 plex = PlexServer(PLEX_BASE_URL, PLEX_TOKEN) # returns a PlexServer instance
 print(plex.settings.customConnections)
 
