@@ -1,24 +1,16 @@
-
-
-This is my first docker. Adapting it for Unraid to automatically update Plex with the random NGrok URL.
-
 This docker will use Ngrok to create a tunnel between your internal plex server to an outside url. Then will update the plex "Custom server access URLs" with the random Ngrok URL using PlexAPI. This allows you to login to plex.tv from any device and have a direct connection to your home plex server. Works from behind Carrier Grade NAT/double NAT and possibly VPN's.
 
 Variable needed are:
 
 Open TCP port 4040 in the Unraid ngrok docker web interface
 
-NGROK_PORT = Plex_IP:32400
-the port should always be 32400. The IP is what ever your plex server IP is. Most likely the same as your Unraid IP. 
-Example 192.168.1.20:32400
+`NGROK_PORT` = 32400
 
-NGROK_AUTH = Ngrok Authtoken from their website after you've created an account
+`NGROK_AUTH` = Ngrok Authtoken from their website after you've created an account
 
-PLEX_USER = Plex username with adminitrative rights
+PLEX_TOKEN = Plex token
 
-PLEX_PWORD = Password for your plex user
-
-PLEX_SERVER = Name of the plex server. The same one listed on the left side or on plex.tv. Most likely called 'tower'
+PLEX_BASE_URL = Plex address like 192.168.0.21:32400
 
 Below is the original docker info from wernight. This is a fork with a custom python script, PlexAPI and python 3 installed.
 
