@@ -21,14 +21,12 @@ def get_ngrok_url():
 
 # Load user defined config"
 NGROK_URL = get_ngrok_url()
-PLEX_USER = sys.argv[1]
-PLEX_PWORD = sys.argv[2]
-PLEX_SERVER = sys.argv[3]
+PLEX_TOKEN = sys.argv[1]
+PLEX_BASE_URL = sys.argv[2]
 
 # stores plex user login info into a variable
 from plexapi.myplex import MyPlexAccount
-account = MyPlexAccount(PLEX_USER, PLEX_PWORD)
-plex = account.resource(PLEX_SERVER).connect()  # returns a PlexServer instance
+plex = PlexServer(PLEX_BASE_URL, PLEX_TOKEN)  # returns a PlexServer instance
 
 # displays current plex custom url settings. Not needed but nice to see
 print(plex.settings.customConnections)
@@ -40,7 +38,6 @@ plex.settings.save()
 
 # displays new custom plex url from Ngrok. Not needed but nice to see
 from plexapi.myplex import MyPlexAccount
-account = MyPlexAccount(PLEX_USER, PLEX_PWORD)
-plex = account.resource(PLEX_SERVER).connect()  # returns a PlexServer instance
+plex = PlexServer(PLEX_BASE_URL, PLEX_TOKEN) # returns a PlexServer instance
 print(plex.settings.customConnections)
 
