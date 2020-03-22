@@ -8,9 +8,9 @@ Open TCP port 4040 in the Unraid ngrok docker web interface
 
 `NGROK_AUTH` = Ngrok Authtoken from their website after you've created an account
 
-PLEX_TOKEN = Plex token
+`PLEX_TOKEN` = [Plex Authtoken](https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token)
 
-PLEX_BASE_URL = Plex address like 192.168.0.21:32400
+`PLEX_BASE_URL` = Plex server url like http://192.168.0.21:32400
 
 Below is the original docker info from wernight. This is a fork with a custom python script, PlexAPI and python 3 installed.
 
