@@ -20,7 +20,7 @@ def get_ngrok_url():
           break
 
 # Load user defined config"
-NGROK_URL = get_ngrok_url().replace('tcp', 'http')
+NGROK_URL = get_ngrok_url().replace('tcp://', 'http://')
 PLEX_TOKEN = sys.argv[1]
 PLEX_BASE_URL = sys.argv[2]
 
