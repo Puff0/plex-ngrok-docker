@@ -15,12 +15,12 @@ def get_ngrok_url():
     res_unicode = res.content.decode("utf-8")
     res_json = json.loads(res_unicode)
     for i in res_json["tunnels"]:
-       if i['proto'] == 'https':
+       if i['proto'] == 'tcp':
           return i['public_url']
           break
 
 # Load user defined config"
-NGROK_URL = get_ngrok_url()
+NGROK_URL = get_ngrok_url().replace('tcp', 'http')
 PLEX_TOKEN = sys.argv[1]
 PLEX_BASE_URL = sys.argv[2]
 
