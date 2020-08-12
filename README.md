@@ -12,6 +12,8 @@ Open TCP port 4040 in the Unraid ngrok docker web interface
 
 `PLEX_BASE_URL` = Plex server url like http://192.168.0.21:32400
 
+`NGROK_PROTOCOL` = set as `TCP`
+
 Below is the original docker info from wernight. This is a fork with a custom python script, PlexAPI and python 3 installed.
 
 [![Docker repository](https://img.shields.io/docker/automated/wernight/ngrok.svg)](https://hub.docker.com/r/wernight/ngrok/) [![Build passing](https://img.shields.io/docker/build/wernight/ngrok.svg)](https://hub.docker.com/r/wernight/ngrok/) [![Codenvy badge](http://beta.codenvy.com/factory/resources/codenvy-contribute.svg)](http://beta.codenvy.com/f?url=https://github.com/wernight/docker-ngrok 'Start development on Codenvy')
