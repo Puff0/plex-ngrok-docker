@@ -4,6 +4,7 @@ import sys
 import json
 import requests
 import time
+import socket
 
 # need time for ngrok to start up before requesting data
 time.sleep(15)
@@ -18,9 +19,15 @@ def get_ngrok_url():
        if i['proto'] == 'tcp':
           return i['public_url']
           break
-
+        
+def convert_domain_to_ip_url(url):
+    domain = url.partition("://")[2].partition(":")[0]
+    port = url.partition(":")[2].partition(":")[2]
+    ip_address = socket.gethostbyname(domain)
+    return "http://" + ip_address + ":" + port
+            
 # Load user defined config"
-NGROK_URL = get_ngrok_url().replace('tcp://', 'http://')
+NGROK_URL = convert_domain_to_ip_url(get_ngrok_url())
 PLEX_TOKEN = sys.argv[1]
 PLEX_BASE_URL = sys.argv[2]
 
