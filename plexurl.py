@@ -24,7 +24,7 @@ def convert_domain_to_ip_url(url):
     domain = url.partition("://")[2].partition(":")[0]
     port = url.partition(":")[2].partition(":")[2]
     ip_address = socket.gethostbyname(domain)
-    return "http://" + ip_address + ":" + port
+    return "https://" + ip_address + ":" + port
             
 # Load user defined config"
 NGROK_URL = convert_domain_to_ip_url(get_ngrok_url())
