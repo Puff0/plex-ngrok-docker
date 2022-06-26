@@ -38,13 +38,14 @@ plex = PlexServer(PLEX_BASE_URL, PLEX_TOKEN)  # returns a PlexServer instance
 # displays current plex custom url settings. Not needed but nice to see
 print(plex.settings.customConnections)
 
-# sets plex's "Custom server access URLs" with one from Ngrok  
+# sets plex's "Custom server access URLs" with one from Ngrok 
+oldValue = plex.settings.customConnections 
+oldValue = oldValue[:oldValue.index(",")] 
 customUrl = plex.settings.get('customConnections')
-customUrl.set(NGROK_URL)
+customUrl.set(oldValue + "," + NGROK_URL)
 plex.settings.save()
 
 # displays new custom plex url from Ngrok. Not needed but nice to see
 from plexapi.server import PlexServer
 plex = PlexServer(PLEX_BASE_URL, PLEX_TOKEN) # returns a PlexServer instance
 print(plex.settings.customConnections)
-
